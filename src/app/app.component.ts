@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Producto } from './producto.interface.ts/producto.interface';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,17 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'ListaCompra';
+
+  productosAComprar: Producto[];
+  // Aquí lo estoy declarando.
+
+  constructor() {
+    this.productosAComprar = [];
+  }
+
+  onProductoCreado($event) {
+    this.productosAComprar.push($event);
+    console.log(this.productosAComprar);
+
+  }
 }
